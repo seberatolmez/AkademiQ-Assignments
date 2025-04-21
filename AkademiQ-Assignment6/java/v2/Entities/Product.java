@@ -1,31 +1,30 @@
-package com.springboot1.example.productAPI.Entities;
-
+package com.springboot1.example.productAPI.v2.Entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
 public class Product {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    
+    @Id //primary key 
+    @GeneratedValue 
     private int id;
-
+    
     private String name;
-
+    
     private double price;
-
     private int stock;
-
-    public Product(int id, String name, double price, int stock) {
+    
+    public Product(int id,String name,double price,int stock){
         this.id = id;
         this.name = name;
-        this.price = price;
+        this.price= price;
         this.stock = stock;
     }
-    public Product(){
 
+    public Product() {
+        
     }
 
     public int getId() {
