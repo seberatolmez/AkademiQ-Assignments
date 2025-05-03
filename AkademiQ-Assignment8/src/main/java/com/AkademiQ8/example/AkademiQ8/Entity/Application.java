@@ -9,7 +9,6 @@ public class Application {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
     private int applicantId;
     private int bootCampId;
     private ApplicationState applicationState;

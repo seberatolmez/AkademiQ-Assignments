@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface BlacklistRepositoryt extends JpaRepository<Blacklist, Integer> {
-    List<Blacklist> findByBlacklistId(int blacklistId);
+    List<Blacklist> findById(int blacklistId);
 }
