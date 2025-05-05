@@ -11,7 +11,7 @@ import com.AkademiQ8.example.AkademiQ8.Service.dto.response.UpdatedBootcampRespo
 public interface BootcampService {
     CreatedBootcampResponse createBootcamp(CreatetBootcampRequest request);
     UpdatedBootcampResponse updateBootcamp(UpdateBootcampRequest request);
-    DeletedBootcampResponse deleteBootcamp(DeleteBootcampRequest request);
+    void deleteBootcamp(DeleteBootcampRequest request);
     GetBootcampResponse getBootCampById(int id);
 
 }

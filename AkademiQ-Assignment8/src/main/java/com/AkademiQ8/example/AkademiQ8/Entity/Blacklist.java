@@ -1,9 +1,6 @@
 package com.AkademiQ8.example.AkademiQ8.Entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
@@ -12,21 +9,53 @@ public class Blacklist {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
 
     private String reason;
     private Date date;
-    private int applicantId;
+   // private int applicantId;
 
     public Blacklist(int id , String reason, Date date, int applicantId) {
         this.id = id;
         this.reason = reason ;
         this.date = date;
-        this.applicantId = applicantId;
+        //this.applicantId = applicantId;
     }
 
     public Blacklist() {
 
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getReason() {
+        return reason;
+    }
+
+    public void setReason(String reason) {
+        this.reason = reason;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+   /*public int getApplicantId() {
+        return applicantId;
+    }
+
+   // public void setApplicantId(int applicantId) {
+        this.applicantId = applicantId;
+    } */
 }

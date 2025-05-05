@@ -36,7 +36,6 @@ public class ApplicantServiceImpl implements ApplicantService {
     public UpdatedApplicantResponse updateApplicant(UpdateApplicationRequest request) {
         Application application = repository.findById(request.getId()).
                 orElseThrow(()-> new RuntimeException("Applicant not found"));
-
         UpdatedApplicantResponse response = mapper.updateResponseFromApplication(application);
         return response;
     }
