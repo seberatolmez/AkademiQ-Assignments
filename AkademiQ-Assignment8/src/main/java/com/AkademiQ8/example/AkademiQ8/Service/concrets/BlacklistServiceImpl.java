@@ -7,10 +7,7 @@ import com.AkademiQ8.example.AkademiQ8.Service.abstracts.BlacklistService;
 import com.AkademiQ8.example.AkademiQ8.Service.dto.request.CreateBlackListRequest;
 import com.AkademiQ8.example.AkademiQ8.Service.dto.request.DeleteBlacklistRequest;
 import com.AkademiQ8.example.AkademiQ8.Service.dto.request.UpdateBlacklistRequest;
-import com.AkademiQ8.example.AkademiQ8.Service.dto.response.CreatedBlacklistResponse;
-import com.AkademiQ8.example.AkademiQ8.Service.dto.response.DeletedBlacklistResponse;
-import com.AkademiQ8.example.AkademiQ8.Service.dto.response.GetBlacklistResponse;
-import com.AkademiQ8.example.AkademiQ8.Service.dto.response.UpdatedBlacklistResponse;
+import com.AkademiQ8.example.AkademiQ8.Service.dto.response.*;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -53,6 +50,16 @@ public class BlacklistServiceImpl implements BlacklistService {
         return repository.findById(id).stream().
                map(mapper::getResponseFromBlackList).collect(Collectors.toList());
     }
+
+    @Override
+    public DeletedBlacklistResponse softDeleteBlacklist(int id) {
+        Blacklist blacklist = repository.findById(id).
+                orElseThrow(()-> new RuntimeException("Applicant not found"));
+        blacklist.setDeletedAt(LocalDateTime.now());
+        Blacklist deletedBlacklist = repository.save(blacklist);
+        return mapper.deleteResponseFromBlackList(deletedBlacklist);
+    }
+
 
 
 }

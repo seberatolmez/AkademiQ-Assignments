@@ -13,5 +13,6 @@ public interface BootcampService {
     UpdatedBootcampResponse updateBootcamp(UpdateBootcampRequest request);
     void deleteBootcamp(DeleteBootcampRequest request);
     GetBootcampResponse getBootCampById(int id);
+   // DeletedBootcampResponse softDeleteBootcamp(int id);
 
 }

@@ -10,4 +10,5 @@ import java.util.Optional;
 @Repository
 public interface BlacklistRepositoryt extends JpaRepository<Blacklist, Integer> {
     Optional<Blacklist> findBlacklistById(int blacklistId);
+
 }

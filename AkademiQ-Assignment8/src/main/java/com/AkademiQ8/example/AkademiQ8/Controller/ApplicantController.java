@@ -6,9 +6,12 @@ import com.AkademiQ8.example.AkademiQ8.Service.dto.request.DeleteApplicantReques
 import com.AkademiQ8.example.AkademiQ8.Service.dto.request.UpdateApplicationRequest;
 import com.AkademiQ8.example.AkademiQ8.Service.dto.response.CreatedAppliantResponse;
 import com.AkademiQ8.example.AkademiQ8.Service.dto.response.GetApplicantResponse;
+import com.AkademiQ8.example.AkademiQ8.Service.dto.response.GetListApplicationResponse;
 import com.AkademiQ8.example.AkademiQ8.Service.dto.response.UpdatedApplicantResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("api/applicants")
@@ -42,5 +45,12 @@ public class ApplicantController {
     public GetApplicantResponse getApplicantByName(@PathVariable String name){
         return service.getApplicantByName(name);
     }
+
+    @GetMapping("applications/{name}")
+    @ResponseStatus(HttpStatus.OK)
+    public List<GetListApplicationResponse> getApplicationByApplicantName(@PathVariable String name) {
+        return service.findApplicationsByApplicanName(name);
+    }
+
 
 }

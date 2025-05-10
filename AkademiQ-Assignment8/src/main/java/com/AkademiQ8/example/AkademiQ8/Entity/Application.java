@@ -1,51 +1,50 @@
 package com.AkademiQ8.example.AkademiQ8.Entity;
 
-import com.AkademiQ8.example.AkademiQ8.Core.ApplicationState;
+import com.AkademiQ8.example.AkademiQ8.Core.enums.ApplicationState;
+import com.AkademiQ8.example.AkademiQ8.Core.entity.BaseEntity;
 import jakarta.persistence.*;
 
 @Entity
-public class Application {
+public class Application extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private int applicantId;
-    private int bootCampId;
+
+    @ManyToOne
+    @JoinColumn(name = "applicantId")
+    private Applicant applicant;
+
+    @ManyToOne
+    @JoinColumn(name = "bootcampId")
+    private Bootcamp bootcamp;
+
+    @Enumerated(EnumType.STRING)
     private ApplicationState applicationState;
 
-    public Application(int id, int applicantId, int bootCampId, ApplicationState applicationState) {
-        this.id = id;
-        this.applicantId = applicantId;
-        this.bootCampId = bootCampId;
+    public Application() {
+    }
+
+    public Application(Applicant applicant, Bootcamp bootcamp, ApplicationState applicationState) {
+        this.applicant = applicant;
+        this.bootcamp = bootcamp;
         this.applicationState = applicationState;
     }
 
-    public Application() {
-
+    public Applicant getApplicant() {
+        return applicant;
     }
 
-    public int getId() {
-        return id;
+    public void setApplicant(Applicant applicant) {
+        this.applicant = applicant;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public Bootcamp getBootcamp() {
+        return bootcamp;
     }
 
-    public int getApplicantId() {
-        return applicantId;
-    }
-
-    public void setApplicantId(int applicantId) {
-        this.applicantId = applicantId;
-    }
-
-    public int getBootCampId() {
-        return bootCampId;
-    }
-
-    public void setBootCampId(int bootCampId) {
-        this.bootCampId = bootCampId;
+    public void setBootcamp(Bootcamp bootcamp) {
+        this.bootcamp = bootcamp;
     }
 
     public ApplicationState getApplicationState() {

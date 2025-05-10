@@ -1,11 +1,12 @@
 package com.AkademiQ8.example.AkademiQ8.Entity;
 
+import com.AkademiQ8.example.AkademiQ8.Core.entity.BaseEntity;
 import jakarta.persistence.*;
 
 import java.util.Date;
 
 @Entity
-public class Blacklist {
+public class Blacklist extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

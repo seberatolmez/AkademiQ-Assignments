@@ -11,6 +11,10 @@ import com.AkademiQ8.example.AkademiQ8.Service.dto.request.UpdateApplicationRequ
 import com.AkademiQ8.example.AkademiQ8.Service.dto.response.*;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class ApplicantServiceImpl implements ApplicantService {
 
@@ -54,6 +58,28 @@ public class ApplicantServiceImpl implements ApplicantService {
         GetApplicantResponse response = mapper.getResponseFromApplication(application);
         return response;
     }
+
+    @Override
+    public DeletedApplicantResponse softDelete(int id) {
+        Application application = repository.findById(id).
+                orElseThrow(()-> new RuntimeException("Applicant not found"));
+        application.setDeletedAt(LocalDateTime.now());
+        Application deletedApplication = repository.save(application);
+        return mapper.deleteResponseFromApplication(deletedApplication);
+
+    }
+
+    @Override
+    public List<GetListApplicationResponse> findApplicationsByApplicanName(String name) {
+        List<Application> applications = repository.findApplicationByApplicantName(name);
+        List<GetListApplicationResponse> responses = applications.stream().
+                map( application -> mapper.getListApplicationResponseFromApplication(application))
+                .collect(Collectors.toList());
+
+        return responses;
+
+    }
+
 
     // kodun okunaklı olması açısından direk return etmek yerine yeni response objeleri oluşturuldu .
 }

@@ -3,28 +3,29 @@ package com.AkademiQ8.example.AkademiQ8.Entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "applicants")
-public class Applicant {
+public class Instructor {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String name ;
 
-    public Applicant(int id, String name) {
+    @Column(name = "name")
+    private String name;
+
+    public Instructor(int id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public Applicant() {
+    public Instructor() {
 
     }
 
-    public int getId(){
+    public int getId() {
         return id;
     }
 
-    public void setId(int id){
+    public void setId(int id) {
         this.id = id;
     }
 

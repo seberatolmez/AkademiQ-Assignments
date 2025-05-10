@@ -2,10 +2,7 @@ package com.AkademiQ8.example.AkademiQ8.Mapper;
 
 import com.AkademiQ8.example.AkademiQ8.Entity.Application;
 import com.AkademiQ8.example.AkademiQ8.Service.dto.request.CreateApplicationRequest;
-import com.AkademiQ8.example.AkademiQ8.Service.dto.response.CreatedAppliantResponse;
-import com.AkademiQ8.example.AkademiQ8.Service.dto.response.CreatedBlacklistResponse;
-import com.AkademiQ8.example.AkademiQ8.Service.dto.response.GetApplicantResponse;
-import com.AkademiQ8.example.AkademiQ8.Service.dto.response.UpdatedApplicantResponse;
+import com.AkademiQ8.example.AkademiQ8.Service.dto.response.*;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
@@ -17,4 +14,6 @@ public interface ApplicationMapper {
     CreatedAppliantResponse createResponseFromApplication(Application application);
     UpdatedApplicantResponse updateResponseFromApplication (Application application);
     GetApplicantResponse getResponseFromApplication (Application application);
+    DeletedApplicantResponse deleteResponseFromApplication (Application application);
+    GetListApplicationResponse getListApplicationResponseFromApplication (Application application);
 }

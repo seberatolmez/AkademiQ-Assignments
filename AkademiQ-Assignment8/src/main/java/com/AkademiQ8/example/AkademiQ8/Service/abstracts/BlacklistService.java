@@ -17,4 +17,6 @@ public interface BlacklistService {
     UpdatedBlacklistResponse updateBlackList(UpdateBlacklistRequest request);
     void deleteBlacklist(DeleteBlacklistRequest request);
     List<GetBlacklistResponse> getCreatedBlacklist(int id );
+    DeletedBlacklistResponse softDeleteBlacklist(int id);
+
 }

@@ -3,6 +3,7 @@ package com.AkademiQ8.example.AkademiQ8.Mapper;
 import com.AkademiQ8.example.AkademiQ8.Entity.Blacklist;
 import com.AkademiQ8.example.AkademiQ8.Service.dto.request.CreateBlackListRequest;
 import com.AkademiQ8.example.AkademiQ8.Service.dto.response.CreatedBlacklistResponse;
+import com.AkademiQ8.example.AkademiQ8.Service.dto.response.DeletedBlacklistResponse;
 import com.AkademiQ8.example.AkademiQ8.Service.dto.response.GetBlacklistResponse;
 import com.AkademiQ8.example.AkademiQ8.Service.dto.response.UpdatedBlacklistResponse;
 import org.mapstruct.Mapper;
@@ -15,5 +16,6 @@ public interface BlacklistMapper {
     CreatedBlacklistResponse createResponseFromBlackList(Blacklist blacklist);
     UpdatedBlacklistResponse updateResponseFromBlackList(Blacklist blacklist);
     GetBlacklistResponse getResponseFromBlackList(Blacklist blacklist);
+    DeletedBlacklistResponse deleteResponseFromBlackList(Blacklist blacklist);
 
 }
