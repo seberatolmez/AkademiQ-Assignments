@@ -7,6 +7,7 @@ import jakarta.persistence.*;
 public class Applicant {
 
     @Id
+    @Column(name = "applicantId")
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int id;
     private String name ;

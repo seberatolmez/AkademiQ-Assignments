@@ -51,4 +51,10 @@ public class BootcampServiceImpl implements BootcampService {
         return mapper.getResponseFromBootcamp(bootcamp);
     }
 
+    @Override
+    public GetBootcampResponse getBootCampByName(String name) {
+        Bootcamp bootcamp = bootcampRepository.findByName(name);
+        return mapper.getResponseFromBootcamp(bootcamp);
+    }
+
 }

@@ -15,13 +15,17 @@ public class Blacklist extends BaseEntity {
 
     private String reason;
     private Date date;
+
+    @ManyToOne
+    @JoinColumn(name = "applicantId")
+    Applicant applicant;
    // private int applicantId;
 
-    public Blacklist(int id , String reason, Date date, int applicantId) {
+    public Blacklist(int id , String reason, Date date, Applicant applicant) {
         this.id = id;
         this.reason = reason ;
         this.date = date;
-        //this.applicantId = applicantId;
+        this.applicant = applicant;
     }
 
     public Blacklist() {
@@ -52,11 +56,11 @@ public class Blacklist extends BaseEntity {
         this.date = date;
     }
 
-   /*public int getApplicantId() {
-        return applicantId;
+    public Applicant getApplicant() {
+        return applicant;
     }
 
-   // public void setApplicantId(int applicantId) {
-        this.applicantId = applicantId;
-    } */
+    public void setApplicant(Applicant applicant) {
+        this.applicant = applicant;
+    }
 }

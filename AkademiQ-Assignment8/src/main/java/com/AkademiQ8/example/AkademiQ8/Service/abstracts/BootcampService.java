@@ -15,4 +15,6 @@ public interface BootcampService {
     GetBootcampResponse getBootCampById(int id);
    // DeletedBootcampResponse softDeleteBootcamp(int id);
 
+    GetBootcampResponse getBootCampByName(String name);
+
 }
